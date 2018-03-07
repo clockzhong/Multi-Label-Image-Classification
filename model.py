@@ -49,7 +49,7 @@ model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
 # model.load_weights("weights.16-0.86800.hdf5")
 
 check = ModelCheckpoint("weights.{epoch:02d}-{val_acc:.5f}.hdf5", monitor='val_acc', verbose=1, save_best_only=True, save_weights_only=True, mode='auto')
-model.fit(x_train, y_train, batch_size=32, nb_epoch=20,callbacks=[check],validation_data=(x_test,y_test))
+model.fit(x_train, y_train, batch_size=32, epoch=20,callbacks=[check],validation_data=(x_test,y_test))
 
 out = model.predict_proba(x_test)
 out = np.array(out)
